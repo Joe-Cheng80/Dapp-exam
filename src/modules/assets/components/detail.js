@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styles from "../styles/detail.module.scss";
-import { Link } from "react-router-dom";
 
 class Detail extends Component {
 	state = {
@@ -21,7 +20,6 @@ class Detail extends Component {
 	};
 
 	render() {
-		console.log(this.props);
 		const { collectionName, name, image_url, description } = this.props;
 		return (
 			<div className={styles.detail}>

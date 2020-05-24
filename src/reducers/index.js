@@ -1,10 +1,12 @@
 import {
+	FETCH_ACCOUNT_FULFILLED,
 	FETCH_ASSETS_LIST_FULFILLED,
 	FETCH_ASSETS_DETAIL_FULFILLED,
 	INIT_DETAIL
 } from "../actions";
 
 const initialState = {
+	account: "",
 	list: [],
 	detail: {
 		collection: {
@@ -29,6 +31,11 @@ const assets = (state = initialState, action) => {
 			return {
 				...state,
 				detail: initialState.detail
+			};
+		case FETCH_ACCOUNT_FULFILLED:
+			return {
+				...state,
+				account: action.payload.account
 			};
 		default:
 			return state;

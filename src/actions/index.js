@@ -3,11 +3,17 @@ import { mergeMap, catchError } from "rxjs/operators";
 import { of, from } from "rxjs";
 import { get } from "../utils";
 
+export const FETCH_ACCOUNT_FULFILLED = "FETCH_ACCOUNT_FULFILLED";
 const FETCH_ASSETS_LIST = "FETCH_ASSETS_LIST";
 export const FETCH_ASSETS_LIST_FULFILLED = "FETCH_ASSETS_LIST_FULFILLED";
 const FETCH_ASSETS_DETAIL = "FETCH_ASSETS_DETAIL";
 export const FETCH_ASSETS_DETAIL_FULFILLED = "FETCH_ASSETS_DETAIL_FULFILLED";
 export const INIT_DETAIL = "INIT_DETAIL";
+
+export const fetchAccountFulfilled = payload => ({
+	type: FETCH_ACCOUNT_FULFILLED,
+	payload
+});
 
 export const fetchAssetsList = payload => ({
 	type: FETCH_ASSETS_LIST,

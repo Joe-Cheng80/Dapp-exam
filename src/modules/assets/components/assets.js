@@ -28,7 +28,6 @@ class Assets extends Component {
 	};
 	render() {
 		const { assets } = this.props;
-		console.log(this.props);
 		return (
 			<div className={styles.assets}>
 				<InfiniteScroll
@@ -37,10 +36,11 @@ class Assets extends Component {
 					hasMore={true}
 					endMessage={<div key={0}>Loading ...</div>}
 				>
-					{assets.length > 0 &&
+					{assets.length > 0 ? (
 						assets.map((asset, index) => {
 							return index + 1 < assets.length ? (
-								<div className={styles.row}>
+								// todo: 暫時先用index當key
+								<div className={styles.row} key={index}>
 									<Link
 										to={`/assets/detail/${asset.asset_contract_address}/${asset.token_id}`}
 									>
@@ -84,7 +84,10 @@ class Assets extends Component {
 							) : (
 								<></>
 							);
-						})}
+						})
+					) : (
+						<div>您沒有任何資產</div>
+					)}
 				</InfiniteScroll>
 			</div>
 		);

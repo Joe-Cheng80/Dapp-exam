@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 const Assets = lazy(() => import("../containers/assets"));
 const Detail = lazy(() => import("../containers/detail"));
 
-const AssetsEntry = () => (
+const AssetsEntry = props => (
 	<>
 		<Suspense fallback={<div>loading</div>}>
 			<Switch>
@@ -13,10 +13,7 @@ const AssetsEntry = () => (
 					component={Detail}
 				/>
 				<Route path="/assets/:address" component={Assets} />
-				<Redirect
-					from="/"
-					to={`/assets/0x960DE9907A2e2f5363646d48D7FB675Cd2892e91`}
-				/>
+				<Redirect from="/" to={`/assets/${props.account}`} />
 				<Route render={() => <div>NOT FOUND</div>} />
 			</Switch>
 		</Suspense>
