@@ -23,12 +23,8 @@ class Assets extends Component {
 		}
 	}
 
-	loadMore = () => {
+	toNextPage = () => {
 		this.setState({ offset: this.state.offset + 1 });
-		// this.props.fetchAssetsList({
-		// 	owner: this.props.match.params.address,
-		// 	offset:
-		// });
 	};
 	render() {
 		const { assets } = this.props;
@@ -37,7 +33,7 @@ class Assets extends Component {
 			<div className={styles.assets}>
 				<InfiniteScroll
 					dataLength={assets.length}
-					next={this.loadMore}
+					next={this.toNextPage}
 					hasMore={true}
 					endMessage={<div key={0}>Loading ...</div>}
 				>
