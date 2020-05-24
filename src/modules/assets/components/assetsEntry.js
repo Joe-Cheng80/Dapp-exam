@@ -4,8 +4,9 @@ import { Route, Switch, Redirect } from "react-router-dom";
 const Assets = lazy(() => import("../containers/assets"));
 const Detail = lazy(() => import("../containers/detail"));
 
-const AssetsEntry = props =>
-	props.account.length > 0 && (
+const AssetsEntry = props => {
+	console.warn(props);
+	return (
 		<>
 			<Suspense fallback={<div>loading</div>}>
 				<Switch>
@@ -20,5 +21,6 @@ const AssetsEntry = props =>
 			</Suspense>
 		</>
 	);
+};
 
 export default AssetsEntry;

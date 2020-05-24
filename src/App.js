@@ -22,15 +22,19 @@ class App extends Component {
 		return (
 			<Router history={history} basename="/">
 				<div className="App">
-					<AssetsEntry />
+					{this.props.account.length > 0 && <AssetsEntry />}
 				</div>
 			</Router>
 		);
 	}
 }
 
+const mapStateToProps = state => ({
+	account: state.account
+});
+
 const mapDispatchToProps = {
 	fetchAccountFulfilled
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
