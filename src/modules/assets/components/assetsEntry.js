@@ -16,7 +16,6 @@ const AssetsEntry = props => {
 					/>
 					<Route path="/assets/:address" component={Assets} />
 					<Redirect from="/" to={`/assets/${props.account}`} />
-					<Route render={() => <div>NOT FOUND</div>} />
 				</Switch>
 			</Suspense>
 		</>
