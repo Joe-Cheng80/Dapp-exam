@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import styles from "../styles/detail.module.scss";
 
 class Detail extends Component {
-	state = {
-		offset: 0
-	};
 	componentDidMount() {
 		this.props.fetchAssetsDetail({
 			asset_contract_address: this.props.match.params.contractAddress,
