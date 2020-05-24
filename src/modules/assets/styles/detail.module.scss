@@ -1,0 +1,23 @@
+.detail {
+	.contentWrapper {
+		padding: 20px 20px 50px 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.imageWrapper {
+			.image {
+				width: 100%;
+			}
+		}
+	}
+	.permalink {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		display: flex;
+		background-color: bisque;
+		height: 50px;
+		justify-content: center;
+		align-items: center;
+	}
+}

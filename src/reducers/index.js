@@ -1,8 +1,16 @@
-import { FETCH_ASSETS_LIST_FULFILLED } from "../actions";
+import {
+	FETCH_ASSETS_LIST_FULFILLED,
+	FETCH_ASSETS_DETAIL_FULFILLED,
+	INIT_DETAIL
+} from "../actions";
 
 const initialState = {
 	list: [],
-	detail: {}
+	detail: {
+		collection: {
+			name: ""
+		}
+	}
 };
 
 const assets = (state = initialState, action) => {
@@ -11,6 +19,16 @@ const assets = (state = initialState, action) => {
 			return {
 				...state,
 				list: [...state.list, ...action.response.assets]
+			};
+		case FETCH_ASSETS_DETAIL_FULFILLED:
+			return {
+				...state,
+				detail: action.response.assets[0]
+			};
+		case INIT_DETAIL:
+			return {
+				...state,
+				detail: initialState.detail
 			};
 		default:
 			return state;
