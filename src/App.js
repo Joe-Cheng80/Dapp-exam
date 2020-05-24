@@ -8,9 +8,6 @@ import AssetsEntry from "./modules/assets/containers/assetsEntry";
 import Web3 from "web3";
 
 class App extends Component {
-	state = {
-		account: ""
-	};
 	async loadBlockChain() {
 		await window.ethereum.enable();
 		const web3 = new Web3(Web3.givenProvider || "http://localhost:3000");
