@@ -4,7 +4,7 @@ import { of, from } from "rxjs";
 import { get } from "../utils";
 
 const FETCH_ASSETS_LIST = "FETCH_ASSETS_LIST";
-const FETCH_ASSETS_LIST_FULFILLED = "FETCH_ASSETS_LIST_FULFILLED";
+export const FETCH_ASSETS_LIST_FULFILLED = "FETCH_ASSETS_LIST_FULFILLED";
 
 export const fetchAssetsList = payload => ({
 	type: FETCH_ASSETS_LIST,

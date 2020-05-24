@@ -12,10 +12,10 @@ const AssetsEntry = () => (
 					path="/assets/detail/:contractAddress/:tokenId"
 					component={Detail}
 				/>
-				<Route path="/assets/:address/:page" component={Assets} />
+				<Route path="/assets/:address" component={Assets} />
 				<Redirect
 					from="/"
-					to={`/assets/0x960DE9907A2e2f5363646d48D7FB675Cd2892e91/0`}
+					to={`/assets/0x960DE9907A2e2f5363646d48D7FB675Cd2892e91`}
 				/>
 				<Route render={() => <div>NOT FOUND</div>} />
 			</Switch>
