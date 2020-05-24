@@ -31,12 +31,13 @@ class Assets extends Component {
 		return (
 			<div className={styles.assets}>
 				<InfiniteScroll
-					dataLength={assets.length}
+					dataLength={assets === null ? 0 : assets.length}
 					next={this.toNextPage}
 					hasMore={true}
 					endMessage={<div key={0}>Loading ...</div>}
 				>
-					{assets.length > 0 ? (
+					{assets && assets.length === 0 && <div>您沒有任何資產</div>}
+					{assets &&
 						assets.map((asset, index) => {
 							return index + 1 < assets.length ? (
 								// todo: 暫時先用index當key
@@ -84,10 +85,7 @@ class Assets extends Component {
 							) : (
 								<></>
 							);
-						})
-					) : (
-						<div>您沒有任何資產</div>
-					)}
+						})}
 				</InfiniteScroll>
 			</div>
 		);

@@ -7,7 +7,7 @@ import {
 
 const initialState = {
 	account: "",
-	list: [],
+	list: null,
 	detail: {
 		collection: {
 			name: ""
@@ -20,7 +20,10 @@ const assets = (state = initialState, action) => {
 		case FETCH_ASSETS_LIST_FULFILLED:
 			return {
 				...state,
-				list: [...state.list, ...action.response.assets]
+				list:
+					state.list === null
+						? action.response.assets
+						: [...state.list, ...action.response.assets]
 			};
 		case FETCH_ASSETS_DETAIL_FULFILLED:
 			return {
