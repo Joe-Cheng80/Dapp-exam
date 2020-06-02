@@ -39,7 +39,8 @@ class Assets extends Component {
 					{assets && assets.length === 0 && <div>您沒有任何資產</div>}
 					{assets &&
 						assets.map((asset, index) => {
-							return index + 1 < assets.length ? (
+							return index + 1 < assets.length &&
+								index % 2 === 0 ? (
 								// todo: 暫時先用index當key
 								<div className={styles.row} key={index}>
 									<Link
