@@ -1,9 +1,19 @@
-import React, {useCallback, useEffect,useState } from "react";
+import React, {useCallback, useEffect, useState, FC } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import styles from "../styles/assets.module.scss";
 import { Link, useParams } from "react-router-dom";
 
-const Assets = ({assets,fetchAssetsList}) => {
+interface AssetsProps {
+	assets: {
+		asset_contract_address: string;
+		token_id: string;
+		image_url: string;
+		name: string;
+	}[];
+	fetchAssetsList: ({owner, offset}:{owner:string; offset:number;}) => void;
+}
+
+const Assets: FC<AssetsProps> = ({assets, fetchAssetsList}) => {
 	const [offset, setOffset] = useState(0)
 	const params = useParams();
 
@@ -24,7 +34,8 @@ const Assets = ({assets,fetchAssetsList}) => {
 					dataLength={assets === null ? 0 : assets.length}
 					next={toNextPage}
 					hasMore={true}
-					endMessage={<div key={0}>Loading ...</div>}
+					endMessage={<div>Loading ...</div>}
+					loader={<div>Loading ...</div>}
 				>
 					<div className={styles.wrapper}>
 						{assets && assets.length === 0 && <div>您沒有任何資產</div>}

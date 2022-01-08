@@ -1,8 +1,18 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, FC} from "react";
 import styles from "../styles/detail.module.scss";
 import { useParams } from "react-router-dom";
 
-const Detail = ({collectionName, name, image_url, description, permalink, fetchAssetsDetail, initDetail}) => {
+interface DetailProps {
+	collectionName: string;
+	name: string;
+	image_url: string;
+	description: string;
+	permalink: string;
+	fetchAssetsDetail: ({asset_contract_address, token_ids}:{asset_contract_address:string; token_ids: string;}) => void;
+	initDetail: () => void;
+}
+
+const Detail: FC<DetailProps> = ({collectionName, name, image_url, description, permalink, fetchAssetsDetail, initDetail}) => {
 	const params = useParams(); 
 	useEffect(()=>{
 		fetchAssetsDetail({

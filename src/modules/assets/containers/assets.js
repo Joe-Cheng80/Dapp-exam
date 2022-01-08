@@ -1,5 +1,5 @@
 import { fetchAssetsList } from "../../../actions";
-import Assets from "../components/assets";
+import Assets from "../components/assets.tsx";
 import { connect } from "react-redux";
 
 const mapStateToProps = state => ({

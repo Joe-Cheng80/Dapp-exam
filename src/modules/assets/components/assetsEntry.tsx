@@ -1,10 +1,14 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, FC } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 
 const Assets = lazy(() => import("../containers/assets"));
 const Detail = lazy(() => import("../containers/detail"));
 
-const AssetsEntry = ({ account }) => {
+interface AssetsEntryProps {
+	account: string;
+  }
+
+const AssetsEntry: FC<AssetsEntryProps> = ({ account }) => {
 	return (
 			<Routes>
 				<Route

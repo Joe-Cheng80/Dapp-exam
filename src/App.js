@@ -9,7 +9,7 @@ import './polyfill';
 import useInitAccount from "./utils/hooks/useInitAccount";
 
 const App = ({ account, fetchAccountFulfilled }) => {
-	useInitAccount(fetchAccountFulfilled)
+	useInitAccount(fetchAccountFulfilled);
 	return (
 		<Router history={history} basename="/">
 			<div className="App">

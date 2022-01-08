@@ -1,4 +1,4 @@
-import AssetsEntry from "../components/assetsEntry";
+import AssetsEntry from "../components/assetsEntry.tsx";
 import { connect } from "react-redux";
 
 const mapStateToProps = state => ({

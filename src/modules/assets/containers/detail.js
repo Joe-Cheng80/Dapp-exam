@@ -1,5 +1,5 @@
 import { fetchAssetsDetail, initDetail } from "../../../actions";
-import Detail from "../components/detail";
+import Detail from "../components/detail.tsx";
 import { connect } from "react-redux";
 
 const mapStateToProps = state => ({
