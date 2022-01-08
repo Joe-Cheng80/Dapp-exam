@@ -1,19 +1,24 @@
 .assets {
-	.row {
+	.wrapper{
 		display: flex;
-		justify-content: space-around;
-		padding: 20px 0;
-		.item {
-			border: 1px solid grey;
-			padding: 20px;
-			width: 150px;
-			.imageWrapper {
+		flex-wrap: wrap;
+		.row {
+			display: flex;
+			justify-content: center;
+			padding: 20px 0;
+			width: 50%;
+			.item {
+				border: 1px solid grey;
+				padding: 20px;
 				width: 150px;
-				height: 150px;
-				padding-bottom: 20px;
-				.image {
-					width: 100%;
-					height: 100%;
+				.imageWrapper {
+					width: 150px;
+					height: 150px;
+					padding-bottom: 20px;
+					.image {
+						width: 100%;
+						height: 100%;
+					}
 				}
 			}
 		}

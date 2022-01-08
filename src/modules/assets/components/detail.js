@@ -1,42 +1,39 @@
-import React, { Component } from "react";
+import React, { useCallback, useEffect } from "react";
 import styles from "../styles/detail.module.scss";
+import { useParams } from "react-router-dom";
 
-class Detail extends Component {
-	componentDidMount() {
-		this.props.fetchAssetsDetail({
-			asset_contract_address: this.props.match.params.contractAddress,
-			token_ids: this.props.match.params.tokenId
+const Detail = ({collectionName, name, image_url, description, permalink, fetchAssetsDetail, initDetail}) => {
+	const params = useParams(); 
+	useEffect(()=>{
+		fetchAssetsDetail({
+			asset_contract_address: params.contractAddress,
+			token_ids: params.tokenId
 		});
-	}
-	componentWillUnmount() {
-		this.props.initDetail();
-	}
+		return initDetail();
+	}, [fetchAssetsDetail, params.contractAddress, params.tokenId])
 
-	handlePermalinkClick = () => {
-		window.location.href = this.props.permalink;
-	};
+	const handlePermalinkClick = useCallback(() => {
+		window.location.href = permalink;
+	}, [permalink])
 
-	render() {
-		const { collectionName, name, image_url, description } = this.props;
-		return (
-			<div className={styles.detail}>
-				<div className={styles.contentWrapper}>
-					<div>{collectionName}</div>
-					<div className={styles.imageWrapper}>
-						<img className={styles.image} src={image_url} alt="" />
-					</div>
-					<div>{name}</div>
-					<div className={styles.description}>{description}</div>
+	return (
+		<div className={styles.detail}>
+			<div className={styles.contentWrapper}>
+				<h1>{collectionName}</h1>
+				<div className={styles.imageWrapper}>
+					<img className={styles.image} src={image_url} alt="" />
 				</div>
-				<div
-					className={styles.permalink}
-					onClick={this.handlePermalinkClick}
-				>
-					permalink
-				</div>
+				<h2>{name}</h2>
+				<div className={styles.description}>{description}</div>
 			</div>
-		);
-	}
+			<div
+				className={styles.permalink}
+				onClick={handlePermalinkClick}
+			>
+				permalink
+			</div>
+		</div>
+	);
 }
 
 export default Detail;
