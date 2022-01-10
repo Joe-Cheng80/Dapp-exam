@@ -6,4 +6,4 @@ const mapStateToProps = (state:RootState) => ({
 	account: state.assets.account
 });
 
-export default connect(mapStateToProps, null)(AssetsEntry);
+export default connect(mapStateToProps, {})(AssetsEntry);

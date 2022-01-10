@@ -20,7 +20,7 @@ const Detail: FC<DetailProps> = ({collectionName, name, image_url, description, 
 			token_ids: params.tokenId ?? ''
 		});
 		return initDetail();
-	}, [fetchAssetsDetail, params.contractAddress, params.tokenId])
+	}, [fetchAssetsDetail, initDetail, params.contractAddress, params.tokenId])
 
 	const handlePermalinkClick = useCallback(() => {
 		window.location.href = permalink;

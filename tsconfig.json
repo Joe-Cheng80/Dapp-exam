@@ -21,9 +21,7 @@
       "noUncheckedIndexedAccess": true,
   
       "baseUrl": "src",
-      "compilerOptions": {
-        "plugins": [{ "name": "typescript-plugin-css-modules" }]
-      }
+      "plugins": [{ "name": "typescript-plugin-css-modules" }]
     },
   }
   

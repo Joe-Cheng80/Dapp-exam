@@ -5,10 +5,13 @@ import { fetchAccountFulfilled } from "../../actions";
 
 export default function useInitAccount(){
     const dispatch = useDispatch();
-    useEffect(async ()=>{
-		await window.ethereum.enable();
-		const web3 = new Web3(Web3.givenProvider || "http://localhost:3000");
-		const accounts = await web3.eth.getAccounts();
-		dispatch(fetchAccountFulfilled({ account: accounts[0] }));
+    useEffect(()=>{
+        async function fetchAccount(){
+            await window.ethereum.enable();
+            const web3 = new Web3(Web3.givenProvider || "http://localhost:3000");
+		    const accounts = await web3.eth.getAccounts();
+		    dispatch(fetchAccountFulfilled({ account: accounts[0] }));
+        }
+        fetchAccount();
 	}, [dispatch])
 }
