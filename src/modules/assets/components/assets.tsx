@@ -23,7 +23,7 @@ const Assets: FC<AssetsProps> = ({assets, fetchAssetsList}) => {
 
 	useEffect(()=>{
 		fetchAssetsList({
-			owner: params.address,
+			owner: params.address ?? '',
 			offset: offset
 		});
 	}, [fetchAssetsList, params.address, offset])

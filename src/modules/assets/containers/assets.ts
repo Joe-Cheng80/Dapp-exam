@@ -1,12 +1,13 @@
 import { fetchAssetsList } from "../../../actions";
-import Assets from "../components/assets.tsx";
+import Assets from "../components/assets";
 import { connect } from "react-redux";
+import { RootState } from "../../../reducers";
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state:RootState) => ({
 	assets:
-		state.list === null
+		state.assets.list === null
 			? null
-			: state.list.map(asset => ({
+			: state.assets.list.map((asset:{image_url:string;name:string;asset_contract:{address:string};token_id:string}) => ({
 					image_url: asset.image_url,
 					name: asset.name,
 					asset_contract_address: asset.asset_contract.address,

@@ -16,8 +16,8 @@ const Detail: FC<DetailProps> = ({collectionName, name, image_url, description, 
 	const params = useParams(); 
 	useEffect(()=>{
 		fetchAssetsDetail({
-			asset_contract_address: params.contractAddress,
-			token_ids: params.tokenId
+			asset_contract_address: params.contractAddress ?? '',
+			token_ids: params.tokenId ?? ''
 		});
 		return initDetail();
 	}, [fetchAssetsDetail, params.contractAddress, params.tokenId])
